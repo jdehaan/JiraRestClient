@@ -18,12 +18,12 @@ namespace TechTalk.JiraRestClient
         private readonly string password;
         private readonly JsonDeserializer deserializer;
         private readonly string baseApiUrl;
-        public JiraClient(string baseUrl, string username, string password)
+        public JiraClient(string baseUrl, string username, string password, string version = "2")
         {
             this.username = username;
             this.password = password;
 
-            baseApiUrl = new Uri(new Uri(baseUrl), "rest/api/2/").ToString();
+            baseApiUrl = new Uri(new Uri(baseUrl), "rest/api/"+ version +"/").ToString();
             deserializer = new JsonDeserializer();
         }
 

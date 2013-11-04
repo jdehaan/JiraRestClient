@@ -86,9 +86,9 @@ namespace TechTalk.JiraRestClient
     public class JiraClient : IJiraClient
     {
         private readonly IJiraClient<IssueFields> client;
-        public JiraClient(string baseUrl, string username, string password)
+        public JiraClient(string baseUrl, string username, string password, string version = "2")
         {
-            client = new JiraClient<IssueFields>(baseUrl, username, password);
+            client = new JiraClient<IssueFields>(baseUrl, username, password, version);
         }
 
         public IEnumerable<Issue> GetIssues(String projectKey)
